@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu de Morpion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            background-color: #f0f0f0;
+        }
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(45deg, #ffcc33, #ff33cc);
+            background-size: 400% 400%;
+            animation: backgroundAnimation 15s ease infinite;
+        }
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: white;
+            font-size: 4rem;
+            letter-spacing: 5px;
+            animation: textAnimation 3s ease infinite;
+            margin: 0;
+        }
+        .subtitle {
+            color: white;
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+        @keyframes textAnimation {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.1); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 200px);
+            grid-gap: 5px;
+            margin-bottom: 20px;
+        }
+        .cell {
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            font-size: 48px;
+            cursor: pointer;
+        }
+        .players {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .player {
+            margin: 0 10px;
+        }
+        .grid-options {
+            margin-bottom: 20px;
+        }
+        .scoreboard {
+            margin-top: 20px;
+        }
+        .score {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="header">
+        <h1>Tic Tac Toe</h1>
+        <div class="subtitle">Créé par Adil Talbi ©</div>
+    </div>
+    <div class="players">
+        <div class="player">
+            <label for="player1">Joueur 1 (X) :</label>
+            <input type="text" id="player1" placeholder="Entrez votre pseudo">
+        </div>
+        <div class="player">
+            <label for="player2">Joueur 2 (O) :</label>
+            <input type="text" id="player2" placeholder="Entrez votre pseudo">
+        </div>
+    </div>
+    <div class="grid-options">
+        <button id="3x3">3x3</button>
+        <button id="5x5">5x5</button>
+        <button id="7x7">7x7</button>
+    </div>
+    <button id="start-button">Commencer le jeu</button>
+    <div class="board" id="board"></div>
+    <div class="scoreboard" id="scoreboard"></div>
+    <script src="script.js"></script>
+</body>
+</html>
